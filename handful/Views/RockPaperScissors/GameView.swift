@@ -42,6 +42,19 @@ func getEmojiFromType(_ type: RPSType) -> String {
     }
 }
 
+func getTextFromType(_ type: RPSType) -> String {
+    switch type {
+    case .rock:
+        return "Rock"
+    case .scissors:
+        return "Scissors"
+    case .paper:
+        return "Paper"
+    default:
+        return "Unknown"
+    }
+}
+
 private let maxGameRounds = 3
 
 struct GameView: View {
@@ -224,39 +237,27 @@ struct UserView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text(getEmojiFromType(userOption))
-            DetectionView(overlayPoints: $overlayPoints)
+            DetectionView(option: gestureToOption(overlayPoints), hand: !overlayPoints.isEmpty)
             CameraGameView(overlayPoints: $overlayPoints)
             Spacer()
-            HStack {
-                Button("Rock") {
-                    withAnimation {
-                        userOption = .rock
-                        gameLogic()
-                    }
+            Button(action: {
+                withAnimation {
+                    userOption = gestureToOption(overlayPoints)
+                    gameLogic()
                 }
-                
-                Spacer()
-                Button("Paper") {
-                    withAnimation {
-                        userOption = .paper
-                        gameLogic()
-                    }
-                }
-                
-                Spacer()
-                Button("Scissors") {
-                    withAnimation {
-                        userOption = .scissors
-                        gameLogic()
-                    }
-                }
-            }
+            }) {
+                RoundedButton(foregroundColor: .black, background: Color(hex: "#FFC0FC"), text: overlayPoints.isEmpty || getGesture(overlayPoints) == .undefined ? "Select an option" : "Confirm option")
+                    .frame(width: 200)
+            } .opacity(overlayPoints.isEmpty || getGesture(overlayPoints) == .undefined ? 0.5 : 1)
+                .disabled(overlayPoints.isEmpty || getGesture(overlayPoints) == .undefined ? true : false)
+            
             .padding([.top, .horizontal])
             Spacer()
         }
         .padding()
     }
+    
+
     
     
     func computerDecision() -> RPSType {
@@ -339,10 +340,30 @@ struct UserView: View {
 }
 
 struct DetectionView: View {
-    @Binding var overlayPoints: [FingerJointPointCG]
+    
+    var option: RPSType
+    var hand: Bool
     
     var body: some View {
-        Text("Detection View")
+        
+        if hand {
+            
+            if option == .undefined {
+                Text("Nothing detected. Try matching one of the allowed gestures.")
+                    .font(.footnote)
+                    .foregroundColor(.black)
+            } else {
+                Text("Detected: \(getEmojiFromType(option)), \(getTextFromType(option))")
+                    .foregroundColor(.black)
+                    .fontWeight(.medium)
+                    .font(.footnote)
+            }
+        } else {
+            Text("No hand found. Please position your hand within the frame.")
+                .font(.footnote)
+                .foregroundColor(.black)
+        }
+        
     }
 }
 
@@ -363,10 +384,15 @@ struct CameraGameView: View {
                 overlayPoints = $0
             }
             .overlay {
-                CameraOverlayView(overlayPoints: overlayPoints)
+//                CameraOverlayView(overlayPoints: overlayPoints)
+                if(gestureToOption(overlayPoints) != .undefined) {
+                    Text(getEmojiFromType(gestureToOption(overlayPoints)))
+                        .font(.system(size: 128))
+                        .position(x: 140, y: 140)
+                }
             }
-            //            Rectangle()
-            //            .fill(.blue)
+//                        Rectangle()
+//                        .fill(.blue)
             .frame(width: 280, height: 280)
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .fixedSize()
@@ -386,3 +412,18 @@ struct CameraGameView: View {
     
 }
 
+
+func gestureToOption(_ overlayPoints: [FingerJointPointCG]) -> RPSType {
+    let gesture = getGesture(overlayPoints)
+    
+    switch gesture {
+    case .open:
+        return .paper
+    case .closed:
+        return .rock
+    case .two:
+        return .scissors
+    default:
+        return .undefined
+    }
+}

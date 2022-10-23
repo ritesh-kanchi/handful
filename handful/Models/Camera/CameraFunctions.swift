@@ -71,15 +71,15 @@ func getGesture(_ points: [FingerJointPointCG]) -> GestureType {
         return .open
     }
     
-    if totalJoints >= 12 && tips >= 2 && dips >= 3 && pips >= 3 {
+    if totalJoints >= 16 && tips >= 2 && dips >= 3 && pips >= 3 {
         return .two
     }
     
-    if totalJoints >= 9 && dips >= 3 && pips >= 3  {
-        return .three
-    }
+//    if totalJoints >= 13 && totaljoints <= 18 && dips >= 3 && pips >= 3  {
+//        return .three
+//    }
     
-    if totalJoints <= 10 {
+    if totalJoints <= 17 && totalJoints >= 13 && fullCmcs {
         return .closed
     }
     
