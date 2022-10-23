@@ -29,6 +29,9 @@
 		A6B81CE1290516E500793791 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE0290516E500793791 /* GameView.swift */; };
 		A6B81CE32905186C00793791 /* CameraRPSOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE22905186C00793791 /* CameraRPSOverlayView.swift */; };
 		A6B81CE52905209900793791 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE42905209900793791 /* GameOverView.swift */; };
+		A6B81CE82905429D00793791 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = A6B81CE72905429D00793791 /* Pow */; };
+		A6B81CEB290542DC00793791 /* GameEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CEA290542DC00793791 /* GameEnums.swift */; };
+		A6B81CED290542EC00793791 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CEC290542EC00793791 /* GameFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,8 @@
 		A6B81CE0290516E500793791 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A6B81CE22905186C00793791 /* CameraRPSOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRPSOverlayView.swift; sourceTree = "<group>"; };
 		A6B81CE42905209900793791 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		A6B81CEA290542DC00793791 /* GameEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEnums.swift; sourceTree = "<group>"; };
+		A6B81CEC290542EC00793791 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B81CE82905429D00793791 /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +135,7 @@
 		A6B81CC22904FB8D00793791 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A6B81CE9290542D500793791 /* Game */,
 				A6B81CD02904FEA100793791 /* Camera */,
 			);
 			path = Models;
@@ -177,6 +184,15 @@
 			path = RockPaperScissors;
 			sourceTree = "<group>";
 		};
+		A6B81CE9290542D500793791 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CEA290542DC00793791 /* GameEnums.swift */,
+				A6B81CEC290542EC00793791 /* GameFunctions.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,6 +209,9 @@
 			dependencies = (
 			);
 			name = handful;
+			packageProductDependencies = (
+				A6B81CE72905429D00793791 /* Pow */,
+			);
 			productName = handful;
 			productReference = A6B81CA32904F01A00793791 /* handful.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +240,9 @@
 				Base,
 			);
 			mainGroup = A6B81C9A2904F01A00793791;
+			packageReferences = (
+				A6B81CE62905429D00793791 /* XCRemoteSwiftPackageReference "Pow" */,
+			);
 			productRefGroup = A6B81CA42904F01A00793791 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +272,7 @@
 			files = (
 				A6B81CC52904FB9F00793791 /* Buttons.swift in Sources */,
 				A6B81CDF2905094300793791 /* GameStartView.swift in Sources */,
+				A6B81CED290542EC00793791 /* GameFunctions.swift in Sources */,
 				A6B81CDA2904FFF000793791 /* CameraView.swift in Sources */,
 				A6B81CB52904F14F00793791 /* HomeView.swift in Sources */,
 				A6B81CD82904FF4E00793791 /* CameraStructures.swift in Sources */,
@@ -264,6 +287,7 @@
 				A6B81CA72904F01A00793791 /* handfulApp.swift in Sources */,
 				A6B81CB72904F3A200793791 /* Extensions.swift in Sources */,
 				A6B81CDC2905002100793791 /* CameraOverlayView.swift in Sources */,
+				A6B81CEB290542DC00793791 /* GameEnums.swift in Sources */,
 				A6B81CD42904FEB200793791 /* CameraEnums.swift in Sources */,
 				A6B81CCB2904FDF800793791 /* Modifiers.swift in Sources */,
 				A6B81CBF2904FA8B00793791 /* ScanView.swift in Sources */,
@@ -477,6 +501,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A6B81CE62905429D00793791 /* XCRemoteSwiftPackageReference "Pow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/movingparts-io/Pow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A6B81CE72905429D00793791 /* Pow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6B81CE62905429D00793791 /* XCRemoteSwiftPackageReference "Pow" */;
+			productName = Pow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6B81C9B2904F01A00793791 /* Project object */;
 }

@@ -27,8 +27,6 @@ struct GameStartView: View {
                     .frame(width: 200)
             }
             .fullScreenCover(isPresented: $openGame, content: {GameView(openGame: $openGame)})
-//            NavigationLink(destination: GameView(), isActive: $openGame) {
-//            }
         }
         .padding(.bottom)
         .padding(.vertical)

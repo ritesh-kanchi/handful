@@ -17,10 +17,10 @@ struct ScanInfoView: View {
     @State private var getStarted = false
     
     var body: some View {
-        
+        VStack {
         if(!getStarted) {
             
-            VStack {
+
                 VStack(alignment: .center, spacing: 10) {
                     PlayerView()
                         .frame(width: 320, height: 320)
@@ -31,14 +31,16 @@ struct ScanInfoView: View {
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                Button(action:{getStarted = true}) {
+                Button(action:{
+                    withAnimation{getStarted = true}}) {
                     RoundedButton(foregroundColor: .black, background: .white, text: "Get started")
                 }
-            }
-            .darkStyle()
+          
         } else {
             ScanView(startGame: $startGame)
         }
+        }
+        .darkStyle()
     }
 }
 

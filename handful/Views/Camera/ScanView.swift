@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Pow
 
 struct ScanView: View {
     
@@ -13,39 +14,50 @@ struct ScanView: View {
     
     @Binding var startGame: Bool
     
+    @State private var showCamera = false
+    
     
     var body: some View {
-        VStack {
-            VStack(alignment: .center, spacing: 20) {
-                CameraBlockView(overlayPoints: $overlayPoints)
-                VStack(alignment: .center, spacing: 10) {
-                    GeneralTitle(text: "Position your hand within the frame.")
-                        .multilineTextAlignment(.center)
-                    if(overlayPoints.isEmpty) {
-                        Text("No hand found.")
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: 250)
-                            .foregroundColor(.gray)
-                    } else {
-                        Text("Hand found!")
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: 250)
-                            .foregroundColor(.gray)
-                        
+        VStack(alignment: .center, spacing: 20) {
+            VStack {
+                if showCamera {
+                    CameraBlockView(overlayPoints: $overlayPoints)
+                        .transition(.movingParts.clock(
+                            blurRadius: 50
+                        ))
+                }
+            }
+                .frame(width: 380, height: 380)
+            VStack(alignment: .center, spacing: 10) {
+                GeneralTitle(text: "Position your hand within the frame.")
+                    .multilineTextAlignment(.center)
+                    .onAppear {
+                        withAnimation(.spring().delay(1)) {
+                            showCamera = true
+                        }
                     }
+                if(overlayPoints.isEmpty) {
+                    Text("No hand found.")
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 250)
+                        .foregroundColor(.gray)
+                } else {
+                    Text("Hand found!")
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 250)
+                        .foregroundColor(.gray)
+                    
                 }
             }
-            Spacer()
-            if(!overlayPoints.isEmpty) {
-                Button("Press here to continue") {
-                    startGame = false
-                }
-                .disabled(overlayPoints.isEmpty)
-                .opacity(overlayPoints.isEmpty ? 0.5 : 1)
-            }
-            
         }
-        .darkStyle()
+        Spacer()
+        if(!overlayPoints.isEmpty) {
+            Button("Press here to continue") {
+                startGame = false
+            }
+            .disabled(overlayPoints.isEmpty)
+            .opacity(overlayPoints.isEmpty ? 0.5 : 1)
+        }
     }
 }
 

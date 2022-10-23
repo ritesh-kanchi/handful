@@ -26,12 +26,14 @@ struct GameOverView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             Spacer()
-            Text(getEmojiFromWin())
-                .font(.system(size: 128))
-            Text(getTextFromWin())
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .kerning(-1.5)
+            VStack(alignment: .center, spacing: 20) {
+                Text(getEmojiFromWin())
+                    .font(.system(size: 128))
+                Text(getTextFromWin())
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .kerning(-1.5)
+            }
             HStack(alignment: .top, spacing: 30) {
                 Spacer()
                 ScoreItem(number: userWins, text: "Win\(userWins == 1 ? "" : "s")")
@@ -106,12 +108,6 @@ struct GameOverView: View {
         cpuOption = .undefined
     }
 }
-
-//struct GameOverView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameOverView()
-//    }
-//}
 
 private struct ScoreItem: View {
     var number: Int
