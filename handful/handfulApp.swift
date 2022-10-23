@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct handfulApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewRouter: viewRouter)
+                .preferredColorScheme(.light)
         }
     }
 }

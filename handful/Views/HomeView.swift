@@ -8,44 +8,55 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject var viewRouter: ViewRouter
+    
     var body: some View {
+        
         NavigationStack {
-            ScrollView {
-                VStack {
-                    HStack {
-                        Text("Let's play...")
-                            .kerning(-1.5)
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                        Spacer()
-                    }
-                    .padding(.top)
-                    VStack(spacing: 0) {
-                        NavigationLink(destination: GameStartView()) {
-                            GameCard()
+            ZStack {
+                ScrollView {
+                    VStack {
+                        HStack {
+                            Text("Let's play...")
+                                .kerning(-1.5)
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            Spacer()
                         }
-                        Text("More coming soon...")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                            .offset(y:-20)
+                        .padding(.top)
+                        VStack(spacing: 0) {
+                            NavigationLink(destination: GameStartView()) {
+                                GameCard()
+                            }
+                            Text("More coming soon...")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                                .offset(y:-20)
+                        }
+                        Divider()
+                            .padding(.vertical,5)
+                        Image("handful-logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 84)
+                            .opacity(0.5)
                     }
-                  Divider()
-                        .padding(.vertical,5)
-                    Image("handful-logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 84)
-                        .opacity(0.5)
+                    .padding()
                 }
-                .padding()
+                VStack {
+                    Spacer()
+                    TabBar(viewRouter: viewRouter)
+                }
             }
+            
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewRouter: ViewRouter())
     }
 }
 

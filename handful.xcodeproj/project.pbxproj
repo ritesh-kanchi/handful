@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A625434B29057E3D0005D532 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A625434A29057E3D0005D532 /* ViewRouter.swift */; };
 		A6B81CA72904F01A00793791 /* handfulApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CA62904F01A00793791 /* handfulApp.swift */; };
 		A6B81CA92904F01A00793791 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CA82904F01A00793791 /* ContentView.swift */; };
 		A6B81CAB2904F01B00793791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B81CAA2904F01B00793791 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A625434A29057E3D0005D532 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		A6B81CA32904F01A00793791 /* handful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = handful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B81CA62904F01A00793791 /* handfulApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handfulApp.swift; sourceTree = "<group>"; };
 		A6B81CA82904F01A00793791 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				A6B81CE9290542D500793791 /* Game */,
 				A6B81CD02904FEA100793791 /* Camera */,
+				A625434A29057E3D0005D532 /* ViewRouter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				A6B81CB52904F14F00793791 /* HomeView.swift in Sources */,
 				A6B81CD82904FF4E00793791 /* CameraStructures.swift in Sources */,
 				A6B81CE1290516E500793791 /* GameView.swift in Sources */,
+				A625434B29057E3D0005D532 /* ViewRouter.swift in Sources */,
 				A6B81CCE2904FE7C00793791 /* CameraModel.swift in Sources */,
 				A6B81CC92904FDA400793791 /* Typography.swift in Sources */,
 				A6B81CD22904FEAA00793791 /* CameraFunctions.swift in Sources */,
