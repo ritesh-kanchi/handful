@@ -42,12 +42,20 @@ struct ScanView: View {
                         .frame(maxWidth: 250)
                         .foregroundColor(.gray)
                 } else {
-                    Text("Hand found!")
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 250)
-                        .foregroundColor(.gray)
+                    if determineDistanceFromScreen(points: overlayPoints) == .near ||  determineDistanceFromScreen(points: overlayPoints) == .far {
+                        Text(getDistanceResponse(determineDistanceFromScreen(points: overlayPoints)))
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 250)
+                            .foregroundColor(.gray)
+                    } else {
+                        Text("Hand found!")
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 250)
+                            .foregroundColor(.gray)
+                    }
                     
                 }
+
             }
         }
         Spacer()
@@ -75,9 +83,6 @@ struct CameraBlockView: View {
     
     @StateObject var camera = CameraModel()
     
-    @State private var timeRemaining = 3
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     var body: some View {
         ZStack {
             CameraView(camera: camera) {
@@ -102,7 +107,7 @@ struct CameraBlockView: View {
         }
         .onAppear(perform: {
             camera.Check()
-            withAnimation(.linear(duration: 1).repeatForever(autoreverses: true)) {
+            withAnimation(.linear(duration: 0.5).repeatForever(autoreverses: true)) {
                 animateGradient.toggle()
             }
         })

@@ -35,3 +35,11 @@ enum FingerType: String, CaseIterable {
     case little
     case wrist
 }
+
+
+enum HandDistances {
+    case near
+    case ideal
+    case far
+    case undefined
+}

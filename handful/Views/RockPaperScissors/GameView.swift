@@ -40,6 +40,7 @@ struct GameView: View {
                             .fontWeight(.bold)
                     }
                     .padding()
+                    .offset(y:20)
                     ComputerView(cpuWins: $cpuWins, cpuOption: $cpuOption, whoWon: $whoWon)
                     UserView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, overlayPoints: $overlayPoints, whoWon: $whoWon, nextRound: $nextRound)
                 }
@@ -192,7 +193,7 @@ struct UserView: View {
     var body: some View {
         VStack {
             Spacer()
-            DetectionView(option: gestureToOption(overlayPoints), hand: !overlayPoints.isEmpty)
+            DetectionView(option: gestureToOption(overlayPoints), hand: !overlayPoints.isEmpty, userWins: userWins, cpuWins: cpuWins)
             CameraGameView(overlayPoints: $overlayPoints)
             Spacer()
             Button(action: {
@@ -299,26 +300,51 @@ struct DetectionView: View {
     var option: RPSType
     var hand: Bool
     
+    var userWins: Int
+    var cpuWins: Int
+    
     var body: some View {
-        
-        if hand {
-            
-            if option == .undefined {
-                Text("Nothing detected. Try matching one of the allowed gestures.")
+        HStack {
+            VStack(alignment: .center, spacing: 5) {
+                Text("\(userWins)")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Text("You")
                     .font(.footnote)
-                    .foregroundColor(.black)
-            } else {
-                Text("Detected: \(getEmojiFromType(option)), \(getTextFromType(option))")
-                    .foregroundColor(.black)
-                    .fontWeight(.medium)
-                    .font(.footnote)
+                    .foregroundColor(.gray)
             }
-        } else {
-            Text("No hand found. Please position your hand within the frame.")
-                .font(.footnote)
-                .foregroundColor(.black)
+            .padding(.horizontal)
+            Spacer()
+            if hand {
+                if option == .undefined {
+                    Text("No gesture found.\nTry matching one of the gestures.")
+                } else {
+                    Text("Detected:\n\(getEmojiFromType(option)), \(getTextFromType(option))")
+                }
+            } else {
+                Text("We couldn't find your hand.\nPlease reposition your hand.")
+            }
+            Spacer()
+            VStack(alignment: .center, spacing: 5) {
+                Text("\(cpuWins)")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Text("Robot")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+                    .padding(.horizontal)
+            }
         }
-        
+        .fixedSize(horizontal: false, vertical: true)
+        .multilineTextAlignment(.center)
+        .frame(maxWidth: .infinity)
+        .foregroundColor(.black)
+        .fontWeight(.medium)
+        .font(.footnote)
+        .padding()
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+        .offset(y: -20)
     }
 }
 
@@ -346,8 +372,8 @@ struct CameraGameView: View {
                         .position(x: 140, y: 140)
                 }
             }
-            //                        Rectangle()
-            //                        .fill(.blue)
+//                                    Rectangle()
+//                                    .fill(.blue)
             .frame(width: 280, height: 280)
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .fixedSize()
