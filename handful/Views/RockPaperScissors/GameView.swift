@@ -46,19 +46,20 @@ private let maxGameRounds = 3
 
 struct GameView: View {
     
+    @Binding var openGame: Bool
+    
     @State private var gameRounds = 0
     @State private var userWins = 0
     @State private var cpuWins = 0
     @State private var ties = 0
     
     @State private var gameOver = false
-    @State private var whoWon: PlayerTypes = .undefined
+    @State private var whoWon: RPSUserOutcome = .undefined
     
     @State private var userOption: RPSType = .undefined
     @State private var cpuOption: RPSType = .undefined
     
     @State private var overlayPoints: [FingerJointPointCG] = []
-    
     
     var body: some View {
         if(!gameOver) {
@@ -82,14 +83,14 @@ struct GameView: View {
                 .edgesIgnoringSafeArea(.all)
             }
         } else {
-            GameOverView(userWins: userWins, cpuWins: cpuWins, ties: ties)
+            GameOverView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, whoWon: $whoWon, openGame: $openGame)
         }
     }
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(openGame: .constant(true))
     }
 }
 
@@ -97,7 +98,7 @@ struct ComputerView: View {
     
     @Binding var cpuWins: Int
     @Binding var cpuOption: RPSType
-    @Binding var whoWon: PlayerTypes
+    @Binding var whoWon: RPSUserOutcome
     
     var body: some View {
         VStack {
@@ -137,7 +138,7 @@ struct UserView: View {
     @Binding var userOption: RPSType
     @Binding var overlayPoints: [FingerJointPointCG]
     
-    @Binding var whoWon: PlayerTypes
+    @Binding var whoWon: RPSUserOutcome
     
     @StateObject var camera = CameraModel()
     
@@ -193,11 +194,15 @@ struct UserView: View {
        
         let outcome = whoWonTheGame()
         
+        whoWon = outcome
+        
         switch outcome {
         case .win:
             userWins += 1
         case .lose:
             cpuWins += 1
+        case .tie:
+            ties += 1
         default:
             break
         }
@@ -232,7 +237,7 @@ struct UserView: View {
         }
 
         
-        if(compOption == .scissors && userOption == .paper) {
+        if(userOption == .scissors && compOption == .paper) {
             return .win
         }
         

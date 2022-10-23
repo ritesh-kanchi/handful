@@ -25,6 +25,11 @@ struct HomeView: View {
                             GameCard()
                         }
                     }
+                    Image("handful-logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 84)
+                        .opacity(0.5)
                 }
                 .padding()
             }
@@ -64,7 +69,7 @@ struct GameCard: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.primary)
-                    Text("I’ll play \(getRandomRPS())")
+                    Text("I’ll play \(getRandomRPS()) 😉")
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundColor(.primary)

@@ -26,7 +26,7 @@ struct GameStartView: View {
                 RoundedButton(foregroundColor: .black, background: Color(hex: "#FFC0FC"), text: "Start game →")
                     .frame(width: 200)
             }
-            .fullScreenCover(isPresented: $openGame, content: {GameView()})
+            .fullScreenCover(isPresented: $openGame, content: {GameView(openGame: $openGame)})
 //            NavigationLink(destination: GameView(), isActive: $openGame) {
 //            }
         }
