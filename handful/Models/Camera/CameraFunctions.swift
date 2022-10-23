@@ -32,7 +32,7 @@ func getJointColor(_ point: FingerJointPointCG) -> Color {
 
 func getGesture(_ points: [FingerJointPointCG]) -> GestureType {
     
-    let totalJoints = points.count
+    let totalJoints = points.filter({ $0.type != .wrist }).count
     
     let tips = points.filter({ $0.type == .tip }).count
     let pips = points.filter({ $0.type == .pip }).count
@@ -71,17 +71,15 @@ func getGesture(_ points: [FingerJointPointCG]) -> GestureType {
         return .open
     }
     
-    if totalJoints >= 16 && tips >= 2 && dips >= 3 && pips >= 3 {
+    
+    if totalJoints <= 20 && totalJoints >= 12 && tips >= 2 && tips < 4 && dips >= 3 && pips >= 3 {
         return .two
     }
     
-//    if totalJoints >= 13 && totaljoints <= 18 && dips >= 3 && pips >= 3  {
-//        return .three
-//    }
-    
-    if totalJoints <= 17 && totalJoints >= 13 && fullCmcs {
+    if totalJoints <= 11 && totalJoints >= 5 {
         return .closed
     }
+
     
     return .undefined
 }
