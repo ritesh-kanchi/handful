@@ -61,8 +61,11 @@ struct GameView: View {
     
     @State private var overlayPoints: [FingerJointPointCG] = []
     
+    @State private var nextRound = false
+    
     var body: some View {
         if(!gameOver) {
+            ZStack {
                 VStack(spacing: 0) {
                     HStack {
                         CloseButton(color: .black)
@@ -72,8 +75,51 @@ struct GameView: View {
                     }
                     .padding()
                     ComputerView(cpuWins: $cpuWins, cpuOption: $cpuOption, whoWon: $whoWon)
-                    UserView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, overlayPoints: $overlayPoints, whoWon: $whoWon)
+                    UserView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, overlayPoints: $overlayPoints, whoWon: $whoWon, nextRound: $nextRound)
                 }
+                
+                
+                
+                if nextRound {
+                    
+                    
+                    VisualEffectView(effect: UIBlurEffect(style: .prominent))
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    
+                    VStack(alignment: .center, spacing: 20) {
+                        HStack(alignment: .center, spacing: 10) {
+                            Text(getEmojiFromType(userOption))
+                                .font(.largeTitle)
+                                .rotationEffect(Angle(degrees: -15))
+                            Text("VS")
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                            Text(getEmojiFromType(cpuOption))
+                                .font(.largeTitle)
+                                .rotationEffect(Angle(degrees: 15))
+                        }
+                        GeneralTitle(text: getTextFromRoundWin())
+                        Button(action: {
+                            withAnimation {
+                                continueLogic()
+                            }
+                        }) {
+                            RoundedButton(foregroundColor: .black, background: .white, text: gameRounds == 2 ? "Final score" : "Next round")
+                                .frame(width: 200)
+                        }
+                    }
+                    .padding(40)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .frame(width: 350, height: 600)
+                    
+                    
+                }
+                
+            }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
                 VStack(spacing: 0) {
@@ -81,10 +127,41 @@ struct GameView: View {
                     Color(hex: "#E9F5C7")
                 }
                 .edgesIgnoringSafeArea(.all)
+            }  } else {
+                GameOverView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, whoWon: $whoWon, openGame: $openGame)
             }
-        } else {
-            GameOverView(gameRounds: $gameRounds, userWins: $userWins, cpuWins: $cpuWins, ties: $ties, gameOver: $gameOver, cpuOption: $cpuOption, userOption: $userOption, whoWon: $whoWon, openGame: $openGame)
+    }
+    
+    
+    func getTextFromRoundWin() -> String {
+        
+        switch whoWon {
+        case .win:
+            return "You won this round!"
+        case .lose:
+            return "You lost this round."
+        case .tie:
+            return "You tied this round!"
+        default:
+            return "Who knows?"
         }
+    }
+    
+    
+    func continueLogic() {
+        
+        userOption = .undefined
+        cpuOption = .undefined
+        whoWon = .undefined
+        
+        
+        gameRounds += 1
+        
+        if gameRounds >= maxGameRounds {
+            gameOver = true
+        }
+        
+        nextRound = false
     }
 }
 
@@ -119,7 +196,7 @@ struct ComputerView: View {
                     .strokeBorder(.white.opacity(0.5), style: StrokeStyle(lineWidth: 20))
             }
             Spacer()
-               
+            
         }
         .padding()
     }
@@ -140,32 +217,39 @@ struct UserView: View {
     
     @Binding var whoWon: RPSUserOutcome
     
+    @Binding var nextRound: Bool
+    
     @StateObject var camera = CameraModel()
     
     var body: some View {
         VStack {
             Spacer()
-            Text(whoWon.rawValue)
             Text(getEmojiFromType(userOption))
             DetectionView(overlayPoints: $overlayPoints)
             CameraGameView(overlayPoints: $overlayPoints)
             Spacer()
             HStack {
                 Button("Rock") {
-                    userOption = .rock
-                    gameLogic()
+                    withAnimation {
+                        userOption = .rock
+                        gameLogic()
+                    }
                 }
                 
                 Spacer()
                 Button("Paper") {
-                    userOption = .paper
-                    gameLogic()
+                    withAnimation {
+                        userOption = .paper
+                        gameLogic()
+                    }
                 }
                 
                 Spacer()
                 Button("Scissors") {
-                    userOption = .scissors
-                    gameLogic()
+                    withAnimation {
+                        userOption = .scissors
+                        gameLogic()
+                    }
                 }
             }
             .padding([.top, .horizontal])
@@ -188,10 +272,10 @@ struct UserView: View {
             return .undefined
         }
     }
-
+    
     func gameLogic() {
         
-       
+        
         let outcome = whoWonTheGame()
         
         whoWon = outcome
@@ -207,15 +291,9 @@ struct UserView: View {
             break
         }
         
-        gameRounds += 1
+        nextRound = true
         
-        if gameRounds >= maxGameRounds {
-            gameOver = true
-        }
-    }
-    
-    func resetRound() {
-        userOption = .undefined
+        
     }
     
     func whoWonTheGame() -> RPSUserOutcome {
@@ -235,7 +313,7 @@ struct UserView: View {
         if(userOption == .paper && compOption == .rock) {
             return .win
         }
-
+        
         
         if(userOption == .scissors && compOption == .paper) {
             return .win
@@ -248,16 +326,16 @@ struct UserView: View {
         if(compOption == .paper && userOption == .rock) {
             return .lose
         }
-
+        
         
         if(compOption == .scissors && userOption == .paper) {
             return .lose
         }
-
+        
         return .undefined
         
     }
-
+    
 }
 
 struct DetectionView: View {
@@ -287,8 +365,8 @@ struct CameraGameView: View {
             .overlay {
                 CameraOverlayView(overlayPoints: overlayPoints)
             }
-//            Rectangle()
-//            .fill(.blue)
+            //            Rectangle()
+            //            .fill(.blue)
             .frame(width: 280, height: 280)
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .fixedSize()
@@ -307,3 +385,4 @@ struct CameraGameView: View {
     }
     
 }
+

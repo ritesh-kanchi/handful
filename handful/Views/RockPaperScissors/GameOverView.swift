@@ -34,10 +34,10 @@ struct GameOverView: View {
                 .kerning(-1.5)
             HStack(alignment: .top, spacing: 30) {
                 Spacer()
-                ScoreItem(number: userWins, text: "Wins")
-                ScoreItem(number: cpuWins, text: "Losses")
+                ScoreItem(number: userWins, text: "Win\(userWins == 1 ? "" : "s")")
+                ScoreItem(number: cpuWins, text: "Loss\(userWins == 1 ? "" : "es")")
                 if(ties > 0) {
-                    ScoreItem(number: ties, text: "Ties")
+                    ScoreItem(number: ties, text: "Tie\(userWins == 1 ? "" : "s")")
                 }
                 Spacer()
             }
@@ -70,7 +70,7 @@ struct GameOverView: View {
             return "😢"
         }
         
-        if ties == 3 {
+        if ties == 3 || (userWins == cpuWins && cpuWins == ties) {
             return "🙃"
         }
         
@@ -86,7 +86,7 @@ struct GameOverView: View {
             return "Better luck next time!"
         }
         
-        if ties == 3 {
+        if ties == 3 || (userWins == cpuWins && cpuWins == ties) {
             return "That's lucky."
         }
         

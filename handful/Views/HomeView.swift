@@ -20,11 +20,17 @@ struct HomeView: View {
                         Spacer()
                     }
                     .padding(.top)
-                    VStack {
+                    VStack(spacing: 0) {
                         NavigationLink(destination: GameStartView()) {
                             GameCard()
                         }
+                        Text("More coming soon...")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .offset(y:-20)
                     }
+                  Divider()
+                        .padding(.vertical,5)
                     Image("handful-logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

@@ -18,15 +18,31 @@ struct ScanView: View {
         VStack {
             VStack(alignment: .center, spacing: 20) {
                 CameraBlockView(overlayPoints: $overlayPoints)
-                GeneralTitle(text: "Position your hand within the frame.")
-                    .multilineTextAlignment(.center)
+                VStack(alignment: .center, spacing: 10) {
+                    GeneralTitle(text: "Position your hand within the frame.")
+                        .multilineTextAlignment(.center)
+                    if(overlayPoints.isEmpty) {
+                        Text("No hand found.")
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 250)
+                            .foregroundColor(.gray)
+                    } else {
+                        Text("Hand found!")
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 250)
+                            .foregroundColor(.gray)
+                        
+                    }
+                }
             }
             Spacer()
-            Button("Press here to continue") {
-                startGame = false
+            if(!overlayPoints.isEmpty) {
+                Button("Press here to continue") {
+                    startGame = false
+                }
+                .disabled(overlayPoints.isEmpty)
+                .opacity(overlayPoints.isEmpty ? 0.5 : 1)
             }
-            .disabled(overlayPoints.isEmpty)
-            .opacity(overlayPoints.isEmpty ? 0.5 : 1)
             
         }
         .darkStyle()

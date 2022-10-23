@@ -65,7 +65,7 @@ private struct HeroView: View {
                 .kerning(-1.5)
                 .fixedSize()
             Spacer()
-            Image("dogcow")
+            Image("memoji")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
