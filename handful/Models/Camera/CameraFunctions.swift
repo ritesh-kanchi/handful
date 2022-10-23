@@ -67,16 +67,16 @@ func getGesture(_ points: [FingerJointPointCG]) -> GestureType {
     
     let fullWrist = wrist == maxWrist
     
-    if tips >= 4 && fullDips && fullPips && fullIps  {
+    if tips >= 5 && fullDips && fullPips && fullIps  {
         return .open
     }
     
     
-    if totalJoints <= 20 && totalJoints >= 12 && tips >= 2 && tips < 4 && dips >= 3 && pips >= 3 {
+    if totalJoints <= 20 && totalJoints >= 11 && tips >= 1 && tips < 5 {
         return .two
     }
     
-    if totalJoints <= 11 && totalJoints >= 5 {
+    if totalJoints <= 9 && totalJoints >= 3 {
         return .closed
     }
 
