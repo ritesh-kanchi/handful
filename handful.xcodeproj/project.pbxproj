@@ -11,6 +11,24 @@
 		A6B81CA92904F01A00793791 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CA82904F01A00793791 /* ContentView.swift */; };
 		A6B81CAB2904F01B00793791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B81CAA2904F01B00793791 /* Assets.xcassets */; };
 		A6B81CAE2904F01B00793791 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B81CAD2904F01B00793791 /* Preview Assets.xcassets */; };
+		A6B81CB52904F14F00793791 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CB42904F14F00793791 /* HomeView.swift */; };
+		A6B81CB72904F3A200793791 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CB62904F3A200793791 /* Extensions.swift */; };
+		A6B81CB92904F66900793791 /* ScanInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CB82904F66900793791 /* ScanInfoView.swift */; };
+		A6B81CBF2904FA8B00793791 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CBE2904FA8B00793791 /* ScanView.swift */; };
+		A6B81CC52904FB9F00793791 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CC42904FB9F00793791 /* Buttons.swift */; };
+		A6B81CC72904FCC200793791 /* handputAnimation.mov in Resources */ = {isa = PBXBuildFile; fileRef = A6B81CC62904FCC200793791 /* handputAnimation.mov */; };
+		A6B81CC92904FDA400793791 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CC82904FDA400793791 /* Typography.swift */; };
+		A6B81CCB2904FDF800793791 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CCA2904FDF800793791 /* Modifiers.swift */; };
+		A6B81CCE2904FE7C00793791 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CCD2904FE7C00793791 /* CameraModel.swift */; };
+		A6B81CD22904FEAA00793791 /* CameraFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CD12904FEAA00793791 /* CameraFunctions.swift */; };
+		A6B81CD42904FEB200793791 /* CameraEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CD32904FEB200793791 /* CameraEnums.swift */; };
+		A6B81CD82904FF4E00793791 /* CameraStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CD72904FF4E00793791 /* CameraStructures.swift */; };
+		A6B81CDA2904FFF000793791 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CD92904FFF000793791 /* CameraView.swift */; };
+		A6B81CDC2905002100793791 /* CameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CDB2905002100793791 /* CameraOverlayView.swift */; };
+		A6B81CDF2905094300793791 /* GameStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CDE2905094300793791 /* GameStartView.swift */; };
+		A6B81CE1290516E500793791 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE0290516E500793791 /* GameView.swift */; };
+		A6B81CE32905186C00793791 /* CameraRPSOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE22905186C00793791 /* CameraRPSOverlayView.swift */; };
+		A6B81CE52905209900793791 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B81CE42905209900793791 /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +37,24 @@
 		A6B81CA82904F01A00793791 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A6B81CAA2904F01B00793791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6B81CAD2904F01B00793791 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A6B81CB42904F14F00793791 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A6B81CB62904F3A200793791 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A6B81CB82904F66900793791 /* ScanInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanInfoView.swift; sourceTree = "<group>"; };
+		A6B81CBE2904FA8B00793791 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		A6B81CC42904FB9F00793791 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		A6B81CC62904FCC200793791 /* handputAnimation.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = handputAnimation.mov; sourceTree = "<group>"; };
+		A6B81CC82904FDA400793791 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		A6B81CCA2904FDF800793791 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		A6B81CCD2904FE7C00793791 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		A6B81CD12904FEAA00793791 /* CameraFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFunctions.swift; sourceTree = "<group>"; };
+		A6B81CD32904FEB200793791 /* CameraEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraEnums.swift; sourceTree = "<group>"; };
+		A6B81CD72904FF4E00793791 /* CameraStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStructures.swift; sourceTree = "<group>"; };
+		A6B81CD92904FFF000793791 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		A6B81CDB2905002100793791 /* CameraOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOverlayView.swift; sourceTree = "<group>"; };
+		A6B81CDE2905094300793791 /* GameStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartView.swift; sourceTree = "<group>"; };
+		A6B81CE0290516E500793791 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A6B81CE22905186C00793791 /* CameraRPSOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRPSOverlayView.swift; sourceTree = "<group>"; };
+		A6B81CE42905209900793791 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +87,13 @@
 		A6B81CA52904F01A00793791 /* handful */ = {
 			isa = PBXGroup;
 			children = (
+				A6B81CC32904FB9200793791 /* Views */,
+				A6B81CC22904FB8D00793791 /* Models */,
+				A6B81CC12904FB8600793791 /* Extra */,
+				A6B81CC02904FB7F00793791 /* Components */,
 				A6B81CA62904F01A00793791 /* handfulApp.swift */,
 				A6B81CA82904F01A00793791 /* ContentView.swift */,
+				A6B81CC62904FCC200793791 /* handputAnimation.mov */,
 				A6B81CAA2904F01B00793791 /* Assets.xcassets */,
 				A6B81CAC2904F01B00793791 /* Preview Content */,
 			);
@@ -65,6 +106,75 @@
 				A6B81CAD2904F01B00793791 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A6B81CC02904FB7F00793791 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CC42904FB9F00793791 /* Buttons.swift */,
+				A6B81CC82904FDA400793791 /* Typography.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A6B81CC12904FB8600793791 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CB62904F3A200793791 /* Extensions.swift */,
+				A6B81CCA2904FDF800793791 /* Modifiers.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		A6B81CC22904FB8D00793791 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CD02904FEA100793791 /* Camera */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A6B81CC32904FB9200793791 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CDD2905050C00793791 /* RockPaperScissors */,
+				A6B81CCC2904FE7200793791 /* Camera */,
+				A6B81CB42904F14F00793791 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A6B81CCC2904FE7200793791 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CB82904F66900793791 /* ScanInfoView.swift */,
+				A6B81CBE2904FA8B00793791 /* ScanView.swift */,
+				A6B81CD92904FFF000793791 /* CameraView.swift */,
+				A6B81CDB2905002100793791 /* CameraOverlayView.swift */,
+				A6B81CE22905186C00793791 /* CameraRPSOverlayView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		A6B81CD02904FEA100793791 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CCD2904FE7C00793791 /* CameraModel.swift */,
+				A6B81CD12904FEAA00793791 /* CameraFunctions.swift */,
+				A6B81CD32904FEB200793791 /* CameraEnums.swift */,
+				A6B81CD72904FF4E00793791 /* CameraStructures.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		A6B81CDD2905050C00793791 /* RockPaperScissors */ = {
+			isa = PBXGroup;
+			children = (
+				A6B81CDE2905094300793791 /* GameStartView.swift */,
+				A6B81CE0290516E500793791 /* GameView.swift */,
+				A6B81CE42905209900793791 /* GameOverView.swift */,
+			);
+			path = RockPaperScissors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B81CAE2904F01B00793791 /* Preview Assets.xcassets in Resources */,
+				A6B81CC72904FCC200793791 /* handputAnimation.mov in Resources */,
 				A6B81CAB2904F01B00793791 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +248,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B81CC52904FB9F00793791 /* Buttons.swift in Sources */,
+				A6B81CDF2905094300793791 /* GameStartView.swift in Sources */,
+				A6B81CDA2904FFF000793791 /* CameraView.swift in Sources */,
+				A6B81CB52904F14F00793791 /* HomeView.swift in Sources */,
+				A6B81CD82904FF4E00793791 /* CameraStructures.swift in Sources */,
+				A6B81CE1290516E500793791 /* GameView.swift in Sources */,
+				A6B81CCE2904FE7C00793791 /* CameraModel.swift in Sources */,
+				A6B81CC92904FDA400793791 /* Typography.swift in Sources */,
+				A6B81CD22904FEAA00793791 /* CameraFunctions.swift in Sources */,
 				A6B81CA92904F01A00793791 /* ContentView.swift in Sources */,
+				A6B81CE52905209900793791 /* GameOverView.swift in Sources */,
+				A6B81CE32905186C00793791 /* CameraRPSOverlayView.swift in Sources */,
+				A6B81CB92904F66900793791 /* ScanInfoView.swift in Sources */,
 				A6B81CA72904F01A00793791 /* handfulApp.swift in Sources */,
+				A6B81CB72904F3A200793791 /* Extensions.swift in Sources */,
+				A6B81CDC2905002100793791 /* CameraOverlayView.swift in Sources */,
+				A6B81CD42904FEB200793791 /* CameraEnums.swift in Sources */,
+				A6B81CCB2904FDF800793791 /* Modifiers.swift in Sources */,
+				A6B81CBF2904FA8B00793791 /* ScanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +398,13 @@
 				DEVELOPMENT_TEAM = 43A35F7GKU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +412,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = space.rtsh.handful;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -299,11 +432,13 @@
 				DEVELOPMENT_TEAM = 43A35F7GKU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +446,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = space.rtsh.handful;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
